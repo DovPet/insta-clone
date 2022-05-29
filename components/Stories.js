@@ -15,11 +15,14 @@ function Stories() {
 
   return (
     <div className="flex space-x-2 p-6 bg-white mt-8 border border-gray-200 rounded-md overflow-x-scroll scrollbar-thin scrollbar-thumb-black ">
-      <Story
-        key={session?.uid}
-        img={session?.user?.image}
-        username={session?.user?.username}
-      />
+      {session && (
+        <Story
+          key={session?.uid}
+          img={session?.user?.image}
+          username={session?.user?.username}
+        />
+      )}
+
       {suggestions.map((profile) => (
         <Story
           key={profile.id}
